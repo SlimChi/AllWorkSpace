@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/CV-HTML" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PROGICA" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pendu-js" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pendu-web" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pendu-web/Pendu_JS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pendu_JS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/projetJEE" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tpPersonne" vcs="Git" />
+  </component>
+</project>

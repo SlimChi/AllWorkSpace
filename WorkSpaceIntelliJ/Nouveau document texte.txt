@@ -1,0 +1,204 @@
+package fr.cs.sdbm_jee.bean;
+
+import fr.cs.sdbm_jee.dao.DaoFactory;
+import fr.cs.sdbm_jee.metier.*;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
+import org.primefaces.util.LangUtils;
+
+import java.io.Serializable;
+import java.security.SecureRandom;
+import java.util.*;
+
+import static java.lang.Integer.getInteger;
+
+@Named
+@SessionScoped
+public class SdbmBean implements Serializable {
+
+    private static ArrayList<Couleur> allCouleur;
+    private Couleur couleurSelected;
+
+    private static ArrayList<Fabricant> allFabricant;
+    private Fabricant fabricantSelected;
+    private static ArrayList<TypeBiere> allTypeBiere;
+    private TypeBiere typeBiereSelected;
+
+    private static ArrayList<Pays> allPays;
+    private Pays paysSelected;
+
+    private static ArrayList<Continent> allContinent;
+    private Continent continentSelected;
+
+    private static ArrayList<Marque> allMarques;
+    private Marque marqueSelected;
+    private Map<String, Map<String, String>> data = new HashMap<>();
+
+
+    private ArticleSearch articleSearch;
+    private ServiceArticle serviceArticle;
+    private ArrayList<Article> allArticls;
+
+
+    @PostConstruct
+    private void init() {
+
+        allCouleur = serviceArticle.getCouleurFiltre();
+        allFabricant = serviceArticle.getFabricantFiltre();
+        allTypeBiere = serviceArticle.getTypeBiereFiltre();
+        allPays = serviceArticle.getPaysFiltre();
+        allContinent = serviceArticle.getContinentFiltre();
+        allMarques = serviceArticle.getMarqueFiltre();
+
+    }
+
+    public SdbmBean() {
+        articleSearch = new ArticleSearch();
+        serviceArticle = new ServiceArticle();
+        articleSearch.setLibelle("");
+        articleSearch.setTitrageMin(0);
+        articleSearch.setTitrageMax(26);
+
+        allPays = serviceArticle.getPaysFiltre();
+        allCouleur = serviceArticle.getCouleurFiltre();
+
+        allArticls = serviceArticle.getFilteredArticles(articleSearch);
+    }
+
+    public void filtrer() {
+
+        articleSearch = new ArticleSearch();
+        serviceArticle = new ServiceArticle();
+        articleSearch.setLibelle("");
+        articleSearch.setTitrageMin(0);
+        articleSearch.setTitrageMax(26);
+        articleSearch.setCouleur(couleurSelected);
+        articleSearch.setFabricant(fabricantSelected);
+        articleSearch.setMarque(marqueSelected);
+        articleSearch.setContinent(continentSelected);
+        articleSearch.setPays(paysSelected);
+        allArticls = serviceArticle.getFilteredArticles(articleSearch);
+
+    }
+
+
+    public boolean globalFilterFunction(Object value, Object filter, Locale locale) {
+        String filterText = (filter == null) ? null : filter.toString().trim().toLowerCase();
+        if (LangUtils.isBlank(filterText)) {
+            return true;
+        }
+
+        int filterInt = getInteger(filterText);
+        Article article = (Article) value;
+        return article.getLibelle().toLowerCase().contains(filterText)
+                || article.getCouleur().getLibelle().toLowerCase().contains(filterText)
+                || article.getMarque().getLibelle().toLowerCase().contains(filterText)
+                || article.getActivity() < filterInt;
+
+    }
+
+
+    public ArrayList<Couleur> getAllCouleur() {
+        return allCouleur;
+    }
+
+    public Couleur getCouleurSelected() {
+        return couleurSelected;
+    }
+
+    public void setCouleurSelected(Couleur couleurSelected) {
+        this.couleurSelected = couleurSelected;
+    }
+
+    public ArrayList<Fabricant> getAllFabricant() {
+        return allFabricant;
+    }
+
+    public Fabricant getFabricantSelected() {
+        return fabricantSelected;
+    }
+
+    public void setFabricantSelected(Fabricant fabricantSelected) {
+        this.fabricantSelected = fabricantSelected;
+    }
+
+    public ArrayList<TypeBiere> getAllTypeBiere() {
+        return allTypeBiere;
+    }
+
+    public TypeBiere getTypeBiereSelected() {
+        return typeBiereSelected;
+    }
+
+    public void setTypeBiereSelected(TypeBiere typeBiereSelected) {
+        this.typeBiereSelected = typeBiereSelected;
+    }
+
+    public ArrayList<Pays> getAllPays() {
+        return allPays;
+    }
+
+    public Pays getPaysSelected() {
+        System.out.println(paysSelected);
+        return paysSelected;
+    }
+
+    public void setPaysSelected(Pays paysSelected) {
+        this.paysSelected = paysSelected;
+    }
+
+    public ArrayList<Continent> getAllContinent() {
+        return allContinent;
+    }
+
+    public Continent getContinentSelected() {
+        return continentSelected;
+    }
+
+    public void setContinentSelected(Continent continentSelected) {
+        this.continentSelected = continentSelected;
+    }
+
+    public ArrayList<Marque> getAllMarques() {
+        return allMarques;
+    }
+
+    public Marque getMarqueSelected() {
+        return marqueSelected;
+    }
+
+    public void setMarqueSelected(Marque marqueSelected) {
+        this.marqueSelected = marqueSelected;
+    }
+
+    public ArticleSearch getArticleSearch() {
+        return articleSearch;
+    }
+
+    public void setArticleSearch(ArticleSearch articleSearch) {
+        this.articleSearch = articleSearch;
+    }
+
+    public ServiceArticle getServiceArticle() {
+        return serviceArticle;
+    }
+
+    public void setServiceArticle(ServiceArticle serviceArticle) {
+        this.serviceArticle = serviceArticle;
+    }
+
+    public ArrayList<Article> getAllArticls() {
+        return allArticls;
+    }
+
+    public void setAllArticls(ArrayList<Article> allArticls) {
+        this.allArticls = allArticls;
+    }
+
+    public String envoyer() {
+        return "envoyerOK";
+    }
+}

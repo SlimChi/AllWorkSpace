@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="imcBean:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>imcBean</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="imcBean-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="imcBean:war exploded" />
+    </root>
+  </artifact>
+</component>

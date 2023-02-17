@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <h1>Calcul de l'IMC</h1>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+
+    <h:body>
+        <ui:composition template="template/templateJSF.xhtml"
+                        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                        xmlns:h="http://xmlns.jcp.org/jsf/html">
+            <ui:define name="titre">Calcul IMC</ui:define>
+            <ui:define name="contenu">
+
+    <h:form>
+        <br/>
+        <h:outputLabel value="Nom" for="nom"/>
+        <h:inputText id="nom" value="#{bean.personne.nom}" required="true" requiredMessage="Le nom est obligatoire"
+                     validatorMessage="Le nom doit avoir une longueur comprise entre 2 et 15 caractère">>
+            <f:validateLength minimum="2" maximum="15"/>
+        </h:inputText>
+        <h:message for="nom"/>
+        <br/>
+        <h:outputLabel value="Prénom" for="prenom"/>
+        <h:inputText id="prenom" value="#{bean.personne.prenom}" required="true"
+                     requiredMessage="Le prénom est obligatoire"
+                     validatorMessage="prenom invalide"/>
+        <h:message for="prenom"/>
+        <br/>
+        <h:outputLabel value="Taille" for="taille"/>
+        <h:inputText id="taille" value="#{bean.imc.taille}" required="true" requiredMessage="Le poids est obligatoire"
+                     converterMessage="La taille doit être un nombre"
+                     converter="jakarta.faces.Float"
+                     validatorMessage="La taille doit être comprise entre 125 et 240">
+            <f:validateDoubleRange minimum="125" maximum="240"/>
+        </h:inputText>
+
+        <h:message for="taille"/>
+        <br/>
+        <h:outputLabel value="Poids" for="poids"/>
+        <h:inputText id="poids" value="#{bean.imc.poids}" required="true" requiredMessage="La taille  est obligatoire"
+                     converterMessage="Le poids doit être un nombre"
+                     converter="jakarta.faces.Float"
+                     validatorMessage="Le poids doit être compris entre 30 et 250">
+            <f:validateDoubleRange minimum="30" maximum="240"/>
+        </h:inputText>
+        <h:message for="poids"/>
+        <br/>
+        <br/>
+        <h:outputLabel value="Test :" for="test"/>
+        <h:inputText id="test" value="#{bean.localDate}" required="true">
+            <f:convertDateTime pattern="dd/MM/yyyy"/>
+        </h:inputText>
+        <h:message for="test"/>
+        <br/>
+        <br/>
+        <h:outputLabel value="NIR : " for="nir"/>
+        <h:inputText id="nir" value="#{bean.nir}" required="true"
+                     requiredMessage="Le NIR est obligatoire"
+                     converter="nirConverter"
+                     validator="nirValidator"/>
+        <h:message for="nir"/>
+        <br/>
+        <div>
+        <h:commandButton class="button" value="Soumettre" action="#{bean.envoyer}"/>
+        </div>
+        <br/>
+
+    </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</f:view>
+</html>

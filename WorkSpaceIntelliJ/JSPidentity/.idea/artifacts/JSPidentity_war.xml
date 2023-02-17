@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JSPidentity:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>JSPidentity</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="exoJSPidentity.war">
+      <element id="artifact" artifact-name="JSPidentity:war exploded" />
+    </root>
+  </artifact>
+</component>

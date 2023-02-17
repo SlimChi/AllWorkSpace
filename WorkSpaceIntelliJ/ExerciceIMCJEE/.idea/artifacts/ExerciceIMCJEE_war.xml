@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ExerciceIMCJEE:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ExerciceIMCJEE</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="imc.war">
+      <element id="artifact" artifact-name="ExerciceIMCJEE:war exploded" />
+    </root>
+  </artifact>
+</component>

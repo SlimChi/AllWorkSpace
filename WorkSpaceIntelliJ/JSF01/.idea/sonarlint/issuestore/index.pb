@@ -1,0 +1,21 @@
+
+X
+(src/main/java/fr/cs/jsf01/bean/bean.java,d\b\dbd4644ae439f437b6957cf6859d7e36d9074411
+e
+5src/main/java/fr/cs/jsf01/converter/NirConverter.java,0\1\010ec730aac5eb283151d87ac2c45a1e18df712a
+O
+src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
+\
+,src/main/webapp/faces/template/contenu.xhtml,b\5\b5b0cec2e198e16784114a3122034b9a40092c02
+Y
+)src/main/webapp/faces/template/pied.xhtml,d\b\db29d63cb96d9999bf9ac520bb2a4205cc5a4994
+X
+(src/main/webapp/WEB-INF/faces-config.xml,9\2\921ab541b29cd2aba50bbba38a0af79890ebe16a
+Y
+)src/main/webapp/faces/template/menu.xhtml,8\e\8e7ff85451b4bcb06c96918162684c4f484ca643
+`
+0src/main/webapp/faces/template/templateJSF.xhtml,3\9\394dec9a5f4738000b5af2b9097bb0bfd3dae631
+T
+$src/main/webapp/faces/resultat.xhtml,c\5\c5bc63cc6c0aef757dff07ebb78edf4fa77628da
+Q
+!src/main/webapp/faces/index.xhtml,9\d\9d406a308083c3ecfd41ad80a095df42b2535b1c

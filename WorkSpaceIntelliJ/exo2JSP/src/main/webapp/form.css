@@ -1,0 +1,31 @@
+form{
+    border: ridge;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto
+}
+form > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+form #idendif{
+    font-weight: bold;
+}
+
+form .input{
+    display: inline-block;
+    float: right;
+    width: 100%;
+}
+
+label
+{
+    display:block;
+    float:left;
+}

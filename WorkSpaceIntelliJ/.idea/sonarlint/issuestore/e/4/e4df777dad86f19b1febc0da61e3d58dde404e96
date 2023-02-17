@@ -1,0 +1,13 @@
+
+S
+java:S1854"=Remove this useless assignment to local variable "personne3".(¶Äšâ
+X
+java:S1854"=Remove this useless assignment to local variable "personne2".(ˆğÕ³ûÿÿÿÿ
+I
+java:S1481".Remove this unused "personne2" local variable.(ˆğÕ³ûÿÿÿÿ
+D
+java:S1481".Remove this unused "personne3" local variable.(¶Äšâ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(µÑÃ§úÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(üÉ“Ôúÿÿÿÿ
+\
+java:S1126$"AReplace this if-then-else statement by a single return statement.(ëÌïøÿÿÿÿ

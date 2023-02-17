@@ -1,0 +1,23 @@
+
+—
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚“¶î
+Q
+java:S1854";Remove this useless assignment to local variable "context".(ì¤¹¡
+P
+java:S1161":Add the "@Override" annotation above this method signature( Üó
+B
+java:S1481",Remove this unused "context" local variable.(ì¤¹¡
+U
+java:S1161":Add the "@Override" annotation above this method signature(´È®‚ıÿÿÿÿ
+P
+java:S1161":Add the "@Override" annotation above this method signature(§œ×ä
+
+java:S1130 "yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(±ÓŸƒ
+‚
+java:S1130 "lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(±ÓŸƒ
+D
+java:S1172 ".Remove this unused method parameter "request".(±ÓŸƒ
+P
+java:S1161&":Add the "@Override" annotation above this method signature(‚“¶î
+D
+java:S1068")Remove this unused "titre" private field.(áŞ¥úÿÿÿÿ

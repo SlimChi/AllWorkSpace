@@ -1,0 +1,74 @@
+
+Œ
+java:S1319…"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ë¢ª‚ûÿÿÿÿ
+‡
+java:S1319‘"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(÷£Ç
+‡
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ä÷ñ·
+†
+java:S1319©"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ñ·°y
+†
+java:S1319¶"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(íğô}
+Œ
+java:S1319Â"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÛÛœÿÿÿÿÿ
+Œ
+java:S1319Ş"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(È±¸üúÿÿÿÿ
+†
+java:S1319â"jThe type of "allArticls" should be an interface such as "List" rather than the implementation "ArrayList".(ğÕÙ¤ûÿÿÿÿ
+Œ
+java:S1319î"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬û—Åıÿÿÿÿ
+
+java:S1319ò"sThe type of "allArticlesSelected" should be an interface such as "List" rather than the implementation "ArrayList".(«Í”àıÿÿÿÿ
+G
+java:S1948"1Make "couleurSelected" transient or serializable.(©±×Ğ
+N
+java:S1948"3Make "fabricantSelected" transient or serializable.(Àğìâüÿÿÿÿ
+I
+java:S1948"3Make "typeBiereSelected" transient or serializable.(İ€¾¡
+I
+java:S1948".Make "paysSelected" transient or serializable.(šÀ‹øÿÿÿÿ
+N
+java:S1948""3Make "continentSelected" transient or serializable.(ã†íúÿÿÿÿ
+K
+java:S1948%"0Make "marqueSelected" transient or serializable.(õÆá²ÿÿÿÿÿ
+E
+java:S1948("/Make "articleSearch" transient or serializable.(ƒßŸ®
+F
+java:S1948)"0Make "serviceArticle" transient or serializable.(‚È•ƒ
+B
+java:S1948*",Make "allArticls" transient or serializable.(´Í¨õ
+K
+java:S1948+"5Make "allArticlesSelected" transient or serializable.(ÛØÔÂ
+L
+java:S1948,"1Make "articleSelected" transient or serializable.(ª ¶ªşÿÿÿÿ
+Q
+java:S26962"6Make the enclosing method "static" or remove this set.(·¢şÙúÿÿÿÿ
+L
+java:S26963"6Make the enclosing method "static" or remove this set.(•´ú·
+L
+java:S26964"6Make the enclosing method "static" or remove this set.(ª²”¬
+Q
+java:S26965"6Make the enclosing method "static" or remove this set.(×è¢üÿÿÿÿ
+Q
+java:S26966"6Make the enclosing method "static" or remove this set.(Ø½°¾ıÿÿÿÿ
+L
+java:S26967"6Make the enclosing method "static" or remove this set.(›Ê±É
+Q
+java:S2696]"6Make the enclosing method "static" or remove this set.(œ¬šşÿÿÿÿ
+Q
+java:S2696`"6Make the enclosing method "static" or remove this set.(ô±¡œøÿÿÿÿ
+Q
+java:S2696k"6Make the enclosing method "static" or remove this set.(É±Ìæúÿÿÿÿ
+L
+java:S2696p"6Make the enclosing method "static" or remove this set.(†¨é‰
+U
+java:S3400÷"9Remove this method and declare a constant for this value.(ÓÚÇ‰şÿÿÿÿ
+_
+java:S1128"CRemove this unused import 'jakarta.faces.application.FacesMessage'.(’ï $8ÚíêïÃ0
+\
+java:S1128"?Remove this unused import 'jakarta.faces.context.FacesContext'.(€óµŠ8ÚíêïÃ0
+\
+java:S1128
+":Remove this unused import 'org.primefaces.util.LangUtils'.(™†Ë«ÿÿÿÿÿ8ÚíêïÃ0
+Y
+java:S1128"7Remove this unused import 'java.security.SecureRandom'.(›éè™úÿÿÿÿ8ÚíêïÃ0

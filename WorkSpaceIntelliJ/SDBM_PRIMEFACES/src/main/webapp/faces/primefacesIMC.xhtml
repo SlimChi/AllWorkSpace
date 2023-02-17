@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+
+    <h:body>
+        <ui:composition template="templates/templateJSF.xhtml">
+            <ui:define name="titre">Calcul IMC</ui:define>
+            <ui:define name="contenu">
+                <h2>Calcul de l'IMC</h2>
+                <div class="card">
+                    <h:form classe="form">
+
+            <span class="ui-float-label">
+                 <p:inputText id="nom" value="#{bean.personne.nom}" required="true"/>
+                 <p:outputLabel for="@previous" value="Nom"/>
+                 <p:message for="nom"/>
+            </span>
+                        <span class="ui-float-label">
+         <p:inputText id="prenom" value="#{bean.personne.prenom}" required="true"/>
+         <p:outputLabel for="@previous" value="Prenom"/>
+         <p:message for="prenom"/>
+            </span>
+                        <span class="ui-float-label">
+         <p:inputText id="taille" value="#{bean.imc.taille}" required="true"/>
+         <p:outputLabel for="@previous" value="Taille"/>
+         <p:message for="taille"/>
+        </span>
+                        <span class="ui-float-label">
+         <p:inputText id="poids" value="#{bean.imc.poids}" required="true"/>
+         <p:outputLabel for="@previous" value="Poids"/>
+         <p:message for="poids"/>
+        </span>
+
+                        <span class="ui-float-label">
+         <p:datePicker id="date" value="#{bean.localDate}" required="true"/>
+         <p:outputLabel for="@previous" value="Date"/>
+         <p:message for="date"/>
+        </span>
+
+
+
+                        <span class="ui-float-label">
+         <p:inputText id="nir" value="#{bean.nir}" required="true" converter="nirConverter"
+                      validator="nirValidator"/>
+         <p:outputLabel for="@previous" value="NIR"/>
+         <p:message for="nir"/>
+        </span>
+                        <p:commandButton class="button" value="Soumettre" action="#{bean.envoyer}"/>
+
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</f:view>
+</html>

@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  database:
+    container_name: sdbmjeeweb
+    image: slimanedz/sdbm_jee
+    ports:
+      - "1433:1433"
+  app:
+    container_name: sdbmweb
+    image: slimanedz/sdbmwebapp
+    ports:
+      - "8080:8080"

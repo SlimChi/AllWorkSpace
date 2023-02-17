@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+    <h:head>
+    </h:head>
+
+    <h:body>
+        <ui:composition template="templates/templateJSF.xhtml">
+            <ui:define name="titre">Projet SDBM Bière</ui:define>
+            <ui:define name="contenu">
+                <div class="card crud-demo">
+                    <h:form id="form" style="width: 85%; background-color: beige">
+                        <p:growl id="messages" showDetail="true"/>
+
+
+                        <p:dataTable id="articles" widgetVar="dtArticles" var="article" value="#{sdbmBean.allArticls}"
+                                     showGridlines="true" stripedRows="true"
+                                     reflow="true" styleClass="products-table"
+                                     selection="#{sdbmBean.allArticlesSelected}" stickyHeader="true"
+                                     stickyTopAt=".layout-topbar"
+                                     rowKey="#{sdbmBean.articleSelected.id}" paginator="true" rows="25"
+                                     rowSelectMode="add" paginatorPosition="bottom">
+                            <f:facet name="header">
+                                <div class="products-table-header">
+                                    <span style="font-weight: bold">Rechercher</span>
+                                    <span class="filter-container ui-input-icon-left" style="margin-right: 10px"> <i
+                                            class="pi pi-search"></i>
+                             <p:inputText id="globalFilter" onkeyup="PF('dtArticles').filter()" placeholder="Search"/>
+                            </span>
+
+                                    <div style="float: right">
+                                        <p:splitButton value="Filtrer" action="#{sdbmBean.filtrer}" update="articles"
+                                                       icon="pi pi-check-circle">
+                                            <p:menuitem value="Reset" action="#{sdbmBean.reset}" update="articles"
+                                                        icon="pi pi-refresh"/>
+                                        </p:splitButton>
+                                    </div>
+                                </div>
+                                <p:panelGrid columns="3" styleClass="customPanelGrid" layout="grid"
+                                             contentStyleClass="ui-fluid">
+
+                                    <p:selectOneMenu id="comboCouleur" value="#{sdbmBean.couleurSelected}"
+                                                     dynamic="true">
+                                        <f:selectItems value="#{sdbmBean.allCouleur}"/>
+                                        <f:converter converterId="couleurConverter"/>
+                                    </p:selectOneMenu>
+
+
+                                    <p:selectOneMenu id="comboContinent" value="#{sdbmBean.continentSelected}"
+                                                     dynamic="true">
+                                        <f:selectItems value="#{sdbmBean.allContinent}"/>
+                                        <p:ajax listener="#{sdbmBean.onContinentChange}" update="comboPays"/>
+                                        <f:converter converterId="continentConverter"/>
+                                    </p:selectOneMenu>
+
+                                    <p:selectOneMenu id="comboPays" value="#{sdbmBean.paysSelected}"
+                                                     dynamic="true">
+                                        <f:selectItems value="#{sdbmBean.allPays}"/>
+                                        <p:ajax listener="#{sdbmBean.onPaysChange}" update="comboContinent"/>
+                                        <f:converter converterId="paysConverter"/>
+                                    </p:selectOneMenu>
+
+                                    <p:selectOneMenu id="comboFabricant" value="#{sdbmBean.fabricantSelected}"
+                                                     dynamic="true">
+                                        <f:selectItems value="#{sdbmBean.allFabricant}"/>
+                                        <f:converter converterId="fabricantConverter"/>
+                                    </p:selectOneMenu>
+
+                                    <p:selectOneMenu id="comboMarque" value="#{sdbmBean.marqueSelected}"
+                                                     dynamic="true">
+                                        <f:selectItems value="#{sdbmBean.allMarques}"/>
+                                        <f:converter converterId="marqueConverter"/>
+                                    </p:selectOneMenu>
+
+                                    <p:selectOneMenu id="comboTypeBiere" value="#{sdbmBean.typeBiereSelected}"
+                                                     dynamic="true">
+                                        <f:selectItems value="#{sdbmBean.allTypeBiere}"/>
+                                        <f:converter converterId="typeBiereConverter"/>
+                                    </p:selectOneMenu>
+
+                                </p:panelGrid>
+                                <div style="margin-top: 15px">
+                                    <p:commandButton value="Ajouter" class="ui-button-yellow rounded-button"
+                                                     icon="pi pi-plus-circle"
+                                                     actionListener="#{sdbmBean.NouveauArticle}"
+                                                     update=":dialogs:manage-product-content"
+                                                     oncomplete="PF('manageProductDialog').show()"
+                                                     styleClass="ui-button rounded-button" style="margin-right: .5rem">
+                                        <p:resetInput target=":dialogs:manage-product-content"/>
+                                    </p:commandButton>
+                                </div>
+
+
+                            </f:facet>
+                            <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+
+                            <p:column headerText="Article Id" sortBy="#{article.id}" filterBy="#{article.id}">
+                                <h:outputText value="#{article.id}"/>
+                            </p:column>
+                            <p:column headerText="Nom" sortBy="#{article.libelle}" filterBy="#{article.libelle}">
+                                <h:outputText value="#{article.libelle}"/>
+                            </p:column>
+                            <p:column headerText="Prix" sortBy="#{article.prixAchat}" filterBy="#{article.prixAchat}">
+                                <h:outputText value="#{article.prixAchat}"/>
+                            </p:column>
+                            <p:column headerText="Volume" sortBy="#{article.volume}" filterBy="#{article.volume}">
+                                <h:outputText value="#{article.volume}"/>
+                            </p:column>
+                            <p:column headerText="Titrage" sortBy="#{article.titrage}" filterBy="#{article.titrage}">
+                                <h:outputText value="#{article.titrage}"/>
+                            </p:column>
+                            <p:column headerText="Stock" sortBy="#{article.stock}" filterBy="#{article.stock}">
+                                <h:outputText value="#{article.stock}"/>
+                            </p:column>
+                            <p:column headerText="Couleur" sortBy="#{article.couleur.libelle}"
+                                      filterBy="#{article.couleur.libelle}">
+                                <h:outputText value="#{article.couleur.libelle}"/>
+                            </p:column>
+
+                            <p:column>
+
+                                <div style="float: right">
+                                    <p:commandButton icon="pi pi-pencil" update=":dialogs:manage-product-content"
+                                                     oncomplete="PF('manageProductDialog').show()"
+                                                     styleClass="edit-button rounded-button ui-button-success"
+                                                     process="@this">
+                                        <f:setPropertyActionListener value="#{article}"
+                                                                     target="#{sdbmBean.articleSelected}"/>
+                                        <p:resetInput target=":dialogs:manage-product-content"/>
+                                    </p:commandButton></div>
+
+                                <p:commandButton class="ui-button-danger rounded-button" icon="pi pi-trash"
+                                                 style="margin-left: 15px" process="@this"
+                                                 oncomplete="PF('deleteProductDialog').show()">
+                                    <f:setPropertyActionListener value="#{article}"
+                                                                 target="#{sdbmBean.articleSelected}"/>
+
+                                </p:commandButton>
+                            </p:column>
+
+                        </p:dataTable>
+
+
+                    </h:form>
+                    <h:form id="dialogs">
+                        <p:dialog header="Détails de l'article" showEffect="fade" modal="true"
+                                  widgetVar="manageProductDialog"
+                                  responsive="true">
+                            <p:outputPanel id="manage-product-content" class="ui-fluid">
+                                <p:outputPanel rendered="#{not empty sdbmBean.articleSelected}">
+
+                                    <div class="field">
+                                        <p:outputLabel for="name">Article</p:outputLabel>
+                                        <p:inputText id="name" value="#{sdbmBean.articleSelected.libelle}"
+                                                     required="true"/>
+                                    </div>
+
+                                    <div class="field">
+                                        <p:outputLabel for="category">Volume</p:outputLabel>
+                                        <p:selectOneRadio id="category" value="#{sdbmBean.articleSelected.volume}"
+                                                          layout="responsive" columns="2">
+                                            <f:selectItem itemLabel="75" itemValue="75"/>
+                                            <f:selectItem itemLabel="33" itemValue="33"/>
+
+                                        </p:selectOneRadio>
+                                    </div>
+                                    <div class="formgrid grid">
+                                        <div class="field col">
+                                            <p:outputLabel for="price">Prix</p:outputLabel>
+                                            <p:inputNumber id="price" value="#{sdbmBean.articleSelected.prixAchat}"
+                                                           symbol=" €"
+                                                           symbolPosition="s" decimalSeparator="."
+                                                           thousandSeparator=","/>
+                                        </div>
+                                        <div class="field col">
+                                            <p:outputLabel for="quantity">Stock</p:outputLabel>
+                                            <p:spinner id="quantity" min="0"
+                                                       value="#{sdbmBean.articleSelected.stock}"/>
+                                        </div>
+                                        <div style="margin-top: 15px">
+                                            <p:selectOneMenu id="couleur" value="#{sdbmBean.articleSelected.couleur}"
+                                                             dynamic="true">
+                                                <f:selectItems value="#{sdbmBean.allCouleur}"/>
+                                                <f:converter converterId="couleurConverter"/>
+                                            </p:selectOneMenu>
+                                        </div>
+                                        <div class="field col">
+                                            <p:outputLabel for="titrage">Titrage</p:outputLabel>
+                                            <p:spinner id="titrage" min="0.5" max="26"
+                                                       value="#{sdbmBean.articleSelected.titrage}"/>
+                                        </div>
+                                        <div style="margin-top: 15px">
+                                            <p:selectOneMenu id="marque" value="#{sdbmBean.articleSelected.marque}"
+                                                             dynamic="true">
+                                                <f:selectItems value="#{sdbmBean.allMarques}"/>
+                                                <f:converter converterId="marqueConverter"/>
+                                            </p:selectOneMenu>
+                                        </div>
+                                        <div style="margin-top: 15px">
+                                            <p:selectOneMenu id="type" value="#{sdbmBean.articleSelected.typeBiere}"
+                                                             dynamic="true">
+                                                <f:selectItems value="#{sdbmBean.allTypeBiere}"/>
+                                                <f:converter converterId="typeBiereConverter"/>
+                                            </p:selectOneMenu>
+                                        </div>
+                                    </div>
+                                </p:outputPanel>
+                            </p:outputPanel>
+
+                            <f:facet name="footer">
+                                <p:commandButton value="Save" icon="pi pi-check"
+                                                 actionListener="#{sdbmBean.saveArticle}"
+                                                 update="manage-product-content"
+                                                 process="manage-product-content @this"/>
+                                <p:commandButton value="Cancel" icon="pi pi-times"
+                                                 onclick="PF('manageProductDialog').hide()"
+                                                 class="ui-button-secondary" type="button"/>
+                            </f:facet>
+                        </p:dialog>
+
+                        <p:confirmDialog widgetVar="deleteProductDialog" showEffect="fade" width="300"
+                                         message="Delete the product?" header="Confirm" severity="warn">
+                            <p:commandButton value="Yes" icon="pi pi-check" actionListener="#{sdbmBean.deleteArticle}"
+                                             process="@this"
+                                             oncomplete="PF('deleteProductDialog').hide()"/>
+                            <p:commandButton value="No" type="button" styleClass="ui-button-secondary"
+                                             icon="pi pi-times"
+                                             onclick="PF('deleteProductDialog').hide()"/>
+                        </p:confirmDialog>
+
+
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</f:view>
+</html>

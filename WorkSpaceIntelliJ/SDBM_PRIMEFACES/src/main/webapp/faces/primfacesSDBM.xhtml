@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+
+    <h:body>
+        <ui:composition template="templates/templateJSF.xhtml"
+                    >
+            <ui:define name="contenu">
+                <h:form classe="form">
+
+                        <h:panelGrid columns="2" cellpadding="2">
+
+                    <p:outputLabel for="comboCouleur" value="Choisir une couleur : "/>
+                    <p:selectOneMenu id="comboCouleur" value="#{sdbmBean.couleurSelected}" required="true" style="width:100%">
+                        <f:ajax render="choixCouleur"/>
+                        <f:selectItems value="#{sdbmBean.allCouleur}"/>
+                        <f:converter converterId="couleurConverter"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="comboFabricant" value="Choisir un fabricant : "/>
+                    <p:selectOneMenu id="comboFabricant" value="#{sdbmBean.fabricantSelected}" required="true" style="width:150px">
+                        <f:ajax render="choixFabricant"/>
+                        <f:selectItems value="#{sdbmBean.allFabricant}"/>
+                        <f:converter converterId="fabricantConverter"/>
+                    </p:selectOneMenu>
+
+
+                    <p:outputLabel for="comboTypeBiere" value="Choisir un type de bière : "/>
+                    <p:selectOneMenu id="comboTypeBiere" value="#{sdbmBean.typeBiereSelected}" required="true">
+                        <f:ajax render="choixTypeBiere"/>
+                        <f:selectItems value="#{sdbmBean.allTypeBiere}"/>
+                        <f:converter converterId="typeBiereConverter"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="comboContinent" value="Choisir un continent : "/>
+                    <p:selectOneMenu id="comboContinent" value="#{sdbmBean.continentSelected}" required="true">
+                        <f:ajax render="choixContinent"/>
+                        <f:selectItems value="#{sdbmBean.allContinent}"/>
+                        <f:converter converterId="continentConverter"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="comboPays" value="Choisir un pays : "/>
+                    <p:selectOneMenu id="comboPays" value="#{sdbmBean.paysSelected}" required="true">
+                        <f:ajax render="choixPays"/>
+                        <f:selectItems value="#{sdbmBean.allPays}"/>
+                        <f:converter converterId="paysConverter"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="comboMarque" value="Choisir une marque : "/>
+                    <p:selectOneMenu id="comboMarque" value="#{sdbmBean.marqueSelected}" required="true">
+                        <f:ajax render="choixMarque"/>
+                        <f:selectItems value="#{sdbmBean.allMarques}"/>
+                        <f:converter converterId="marqueConverter"/>
+                    </p:selectOneMenu>
+                        </h:panelGrid>
+                    <p:divider/>
+
+                </h:form>
+
+                <div class="result">
+                    <h3>
+                        <h:outputText id="choixCouleur" name="choixCouleur"
+                                      value="La couleur de la bière : #{sdbmBean.couleurSelected}"/>
+                    </h3>
+
+                    <h3>
+                        <h:outputText id="choixFabricant" name="choixFabricant"
+                                      value="Le fabricant : #{sdbmBean.fabricantSelected}"/>
+                    </h3>
+
+                    <h3>
+                        <h:outputText id="choixTypeBiere" name="choixTypeBiere"
+                                      value="Type de bière : #{sdbmBean.typeBiereSelected}"/>
+                    </h3>
+
+                    <h3>
+                        <h:outputText id="choixContinent" name="choixContinent"
+                                      value="Continent : #{sdbmBean.continentSelected}"/>
+                    </h3>
+
+                    <h3>
+                        <h:outputText id="choixPays" name="choixPays" value="Pays : #{sdbmBean.paysSelected}"/>
+
+                    </h3>
+
+                    <h3>
+                        <h:outputText id="choixMarque" name="choixMarque" value="Marque : #{sdbmBean.marqueSelected}"/>
+                    </h3>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</f:view>
+</html>

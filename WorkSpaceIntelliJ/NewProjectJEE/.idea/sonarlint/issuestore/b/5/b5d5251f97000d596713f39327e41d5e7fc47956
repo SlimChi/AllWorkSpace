@@ -1,0 +1,17 @@
+
+—
+java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚“¶î
+o
+java:S1450"TRemove the "titre" field and declare it as a local variable in the relevant methods.(áŞ¥úÿÿÿÿ
+Q
+java:S1854";Remove this useless assignment to local variable "context".(ì¤¹¡
+P
+java:S1161":Add the "@Override" annotation above this method signature( Üó
+B
+java:S1481",Remove this unused "context" local variable.(ì¤¹¡
+P
+java:S1161":Add the "@Override" annotation above this method signature(°¥¸û
+P
+java:S1161":Add the "@Override" annotation above this method signature(§œ×ä
+P
+java:S1161+":Add the "@Override" annotation above this method signature(‚“¶î
